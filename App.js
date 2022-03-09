@@ -29,10 +29,6 @@ import {
   modeColor
 } from './theme/colors';
 
-import {
-  LockPinHeader
-} from './component/LockPinHeader'
-
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
@@ -73,7 +69,6 @@ const App: () => Node = () => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <LockPinHeader />
         <View
           style={{
             backgroundColor: isDarkMode ? modeColor.dark.background : modeColor.light.background,
