@@ -27,7 +27,7 @@ import {
 
 import {
   modeColor
-} from './theme/colors';
+} from './theme/Colors';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';

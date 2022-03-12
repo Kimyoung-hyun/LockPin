@@ -3,26 +3,34 @@ import React from 'react';
 
 import {
     View,
+    Text,
     StyleSheet
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {
+    modeColor
+  } from '../theme/Colors';
 
-const LockPinHeader = () => {
+import Icon from 'react-native-vector-icons/Entypo';
+
+const LockPinHeader = (isDarkMode) => {
+    // const fontColor = isDarkMode ? modeColor.dark.font : modeColor.light.font;
+    const fontColor = '#463F3A';
+
     Icon.loadFont();
     return (
-        <View StyleSheet={styles.header}>
-            <Icon name="location-pin" size={100} color="#900" />
+        <View style={styles.container}>
+            <Icon name="location-pin" size={38} color={fontColor}/>
+            <Text style={{ fontSize: 35, color: fontColor }}>LockPin</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-  header: {
-      marginTop: 200,
-      margin: 200,
-
-  }
+    container: {
+        flexDirection: 'row',
+        paddingLeft: 10,
+    },
 });
  
 
