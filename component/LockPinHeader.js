@@ -4,7 +4,7 @@ import React from 'react';
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
 } from 'react-native';
 
 import {
@@ -13,15 +13,13 @@ import {
 
 import Icon from 'react-native-vector-icons/Entypo';
 
-const LockPinHeader = (isDarkMode) => {
-    // const fontColor = isDarkMode ? modeColor.dark.font : modeColor.light.font;
-    const fontColor = '#463F3A';
-
+const LockPinHeader = ({ isDarkMode }) => {
+    const fontColor = isDarkMode ? modeColor.dark.font : modeColor.light.font;
     Icon.loadFont();
     return (
         <View style={styles.container}>
-            <Icon name="location-pin" size={38} color={fontColor}/>
-            <Text style={{ fontSize: 35, color: fontColor }}>LockPin</Text>
+            <Icon name="location-pin" size={25} color={fontColor}/>
+            <Text style={{ fontSize: 25, color: fontColor }}>LockPin</Text>
         </View>
     );
 };
@@ -31,6 +29,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingLeft: 10,
     },
+
 });
  
 

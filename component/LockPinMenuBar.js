@@ -5,7 +5,7 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -14,30 +14,52 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const LockPinMenuBar = (isDarkMode) => {
-    const fontColor = isDarkMode ? modeColor.dark.font : modeColor.light.font;
-    const contentColor = isDarkMode ? modeColor.dark.font : modeColor.light.font;
-    // const fontColor = '#463F3A';
+const LockPinMenuBar = ({ isDarkMode }) => {
+    const contentColor = isDarkMode ? modeColor.dark.contents : modeColor.light.contents;
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 0.06,
+            border: true,
+            alignContent: 'center',
+            justifyContent: 'space-around',
+            flexDirection: 'row',
+            borderStyle: 'solid',
+            borderTopWidth: 1,
+            borderTopColor: { contentColor },
+            paddingTop: 10,
+        },
+        btnContainer: {
+            width: "100%",
+            alignItems: 'center',
+        },
+        font: {
+            fontSize: 18,
+            color: { contentColor },
+            paddingTop: 5,
+        },
+    });
+
     Icon.loadFont();
     return (
         <View style={styles.container}>
             <TouchableOpacity
                 onPress={() => {alert('PressSearch')}}>
                 <View style={styles.btnContainer}>
-                    <Icon name="search" size={25} color="#BCB8B1"/>
+                    <Icon name="search" size={20} color={ contentColor }/>
                     <Text style={styles.font}>Search</Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity>
                 <View style={styles.btnContainer}>
-                    <Icon name="home" size={25} color="#BCB8B1"/>
+                    <Icon name="home" size={20} color={ contentColor }/>
                     <Text style={styles.font}>Home</Text>
                 </View>
                 
             </TouchableOpacity>
             <TouchableOpacity>
                 <View style={styles.btnContainer}>
-                    <Icon name="exclamation-circle" size={25} color="#BCB8B1"/>
+                    <Icon name="exclamation-circle" size={20} color={ contentColor }/>
                     <Text style={styles.font}>My Lock</Text>
                 </View>
             </TouchableOpacity>
@@ -48,29 +70,7 @@ const LockPinMenuBar = (isDarkMode) => {
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 0.1,
-        border: true,
-        alignContent: 'center',
-        justifyContent: 'space-around',
-        flexDirection: 'row',
-        borderStyle: 'solid',
-        borderTopWidth: 1,
-        borderTopColor: '#BCB8B1',
-        paddingTop: 4,
-    },
-    btnContainer: {
-        width: "100%",
-        alignItems: 'center',
-        // justifyContent: 'center',
-        // backgroundColor: 'orange',
-    },
-    font: {
-        fontSize: 20,
-        color: '#BCB8B1',
-    },
-});
+
 
 
 export default LockPinMenuBar;

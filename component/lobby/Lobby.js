@@ -13,14 +13,12 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+
 import { getCurrentTimestamp } from 'react-native/Libraries/Utilities/createPerformanceLogger';
 
 import {
   modeColor
 } from '../../theme/Colors';
-
-//  import Constants from 'expo-constants';
-//  import { StatusBar } from "expo-status-bar";
 
 import LockPinHeader from '../LockPinHeader';
 import LockPinMenuBar from '../LockPinMenuBar';
@@ -31,11 +29,10 @@ const Lobby = () => {
     backgroundColor: isDarkMode ? modeColor.dark.background : modeColor.light.background,
     flex: 1
   };
-  LockPinHeader(isDarkMode);
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <LockPinHeader isDarkMode={{ isDarkMode }}></LockPinHeader>
+      <LockPinHeader isDarkMode = {isDarkMode} />
 
       <ScrollView
         pagingEnabled
@@ -44,7 +41,7 @@ const Lobby = () => {
         
       </ScrollView>
 
-      <LockPinMenuBar isDarkMode={{ isDarkMode }}></LockPinMenuBar>
+      <LockPinMenuBar isDarkMode = {isDarkMode} />
     </SafeAreaView>
   );
 };
