@@ -16,7 +16,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const LockPinMenuBar = ({ isDarkMode }) => {
     const contentColor = isDarkMode ? modeColor.dark.contents : modeColor.light.contents;
-
     const styles = StyleSheet.create({
         container: {
             flex: 0.06,
@@ -26,7 +25,7 @@ const LockPinMenuBar = ({ isDarkMode }) => {
             flexDirection: 'row',
             borderStyle: 'solid',
             borderTopWidth: 1,
-            borderTopColor: { contentColor },
+            borderTopColor: contentColor,
             paddingTop: 10,
         },
         btnContainer: {
@@ -35,7 +34,7 @@ const LockPinMenuBar = ({ isDarkMode }) => {
         },
         font: {
             fontSize: 18,
-            color: { contentColor },
+            color: contentColor,
             paddingTop: 5,
         },
     });
@@ -55,7 +54,7 @@ const LockPinMenuBar = ({ isDarkMode }) => {
                     <Icon name="home" size={20} color={ contentColor }/>
                     <Text style={styles.font}>Home</Text>
                 </View>
-                
+            
             </TouchableOpacity>
             <TouchableOpacity>
                 <View style={styles.btnContainer}>
