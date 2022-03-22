@@ -5,6 +5,7 @@ import {
     View,
     Text,
     StyleSheet,
+    TouchableOpacity
 } from 'react-native';
 
 import {
@@ -15,22 +16,43 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 const LockPinHeader = ({ isDarkMode }) => {
     const fontColor = isDarkMode ? modeColor.dark.font : modeColor.light.font;
+    const contentColor = isDarkMode ? modeColor.dark.contents : modeColor.light.contents;
+    const fontSize = 25;
+
     Icon.loadFont();
     return (
         <View style={styles.container}>
-            <Icon name="location-pin" size={25} color={fontColor}/>
-            <Text style={{ fontSize: 25, color: fontColor }}>LockPin</Text>
+            <View style={styles.header}>
+                <Icon name="location-pin" size={fontSize} color={fontColor}/>
+                <Text style={{ fontSize: fontSize, color: fontColor }}>LockPin</Text>
+            </View>
+            {/* TODO @hwjeon Add onClick EventHandler */}
+            <TouchableOpacity> 
+                <View style={styles.btnContainer}>
+                    <Text 
+                    style={{ fontSize: fontSize, 
+                            color: contentColor, 
+                            alignSelf:'flex-end', 
+                            fontWeight:'600' }}>+</Text>
+                </View>
+            </TouchableOpacity>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
+        justifyContent:'space-between',
+        flexDirection:'row',
         paddingLeft: 10,
     },
-
+    header: {
+        flexDirection: 'row',
+    },
+    btnContainer: {
+        width: "100%",
+        paddingRight: 15,
+    },
 });
- 
 
 export default LockPinHeader;
